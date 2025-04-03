@@ -11,7 +11,7 @@ def Register_view(request):
         if (form.is_valid()):
             user =form.save()
             login(request,user)
-            return redirect('login')
+            return redirect('Login')
 
     return render(request, "tasks/register.html",{'form': form})
 
@@ -19,6 +19,9 @@ def Register_view(request):
 
 def Login_view(request):
 
+    username = ""
+    password = ""
+    
     if request.method == 'POST' :
         username = request.POST["username"]
         password = request.POST["password"]
@@ -26,7 +29,7 @@ def Login_view(request):
         user =authenticate(request, username , password)
         if(user != None):
             login(request,user)
-            return redirect('home')
+            return redirect('Login')
         
         else :
             print("error : Login-view request ")
