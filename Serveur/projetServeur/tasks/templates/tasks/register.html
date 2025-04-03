@@ -18,7 +18,12 @@
 <!-- partie pour register -->
 <section class="register-part1">
     <h1><strong> Register Page </h1></strong>
-    
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+        <button type="submit"> Register </button>
+    </form>
 
 
 </section>
