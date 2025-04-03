@@ -11,14 +11,15 @@ def Register_view(request):
         if (form.is_valid()):
             user =form.save()
             login(request,user)
-            return redirect('login')
+            return redirect('login') 
 
     return render(request, "tasks/register.html",{'form': form})
 
 
 
 def Login_view(request):
-
+    username = ''
+    password = ''
     if request.method == 'POST' :
         username = request.POST["username"]
         password = request.POST["password"]
