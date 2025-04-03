@@ -12,6 +12,8 @@ def Register_view(request):
             user =form.save()
             login(request,user)
             return redirect('Login')
+    else : 
+        form = RegisterForm()
 
     return render(request, "tasks/register.html",{'form': form})
 
