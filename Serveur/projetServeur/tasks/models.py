@@ -8,6 +8,8 @@ class Task(models.Model):
     title = models.CharField(max_length=200)
     statut = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
+    parentTask = models.CharField(max_length=200)
+    sonTask = models.CharField(max_length=200)
         
 class User(AbstractUser):
     #name = models.CharField(max_length=200)
