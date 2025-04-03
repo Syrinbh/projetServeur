@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 # Create your views here.
 from django.http import HttpResponse
 from .forms import RegisterForm
+from django.contrib.auth import authenticate,login
 
 def Register_view(request):
     if request.method == 'POST' :
@@ -17,7 +18,19 @@ def Register_view(request):
 
 
 def Login_view(request):
-    # if request.method == 'POST' :
-        
 
-    return HttpResponse("Page de connexion")
+    if request.method == 'POST' :
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        user =authenticate(request, username , password)
+        if(user != None):
+            login(request,user)
+            return redirect('home')
+        
+        else :
+            print("error : Login-view request ")
+
+    return render(request , "tasks/login.html",{'username' : username,'password' : password})
+            
+
