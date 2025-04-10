@@ -9,8 +9,10 @@ class Task(models.Model):
     statut = models.CharField(max_length=200,default='none')
     description = models.TextField()
     #description = models.CharField(max_length=200)
-    parentTask = models.CharField(max_length=200,default='none')
-    sonTask = models.CharField(max_length=200,default='none')
+    Parent = models.ForeignKey('self',null = True,blank=True,on_delete=models.SET_NULL,related_name="subtask")
+    createdby = models.ForeignKey('User',null=True,blank=True,on_delete=models.SET_NULL,related_name='createdTasks')
+    assignedUsers = models.ManyToManyField('User')
+    assignedTeams = models.ManyToManyField('Team')
         
 class User(AbstractUser):
     #name = models.CharField(max_length=200)
@@ -22,8 +24,3 @@ class Team(models.Model):
 
 
 
-class CreatTask ():
-    Parent = models.ForeignKey('self',on_delete=models.SET_NULL)
-    createdby = models.ForeignKey('User',on_delete=models.SET_NULL)
-    assignedUsers = models.ManyToManyField('User')
-    assignedTeams = models.ManyToManyField('Team')
