@@ -8,3 +8,32 @@
     }
 -->
 
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Charger le tag static -->
+    {% load static %}
+    <title>Créer une Tâche</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+    <h1>Créer une Nouvelle Tâche</h1>
+    
+    <!-- Formulaire pour créer une tâche -->
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }} <!-- Affiche le formulaire comme des paragraphes -->
+        <button type="submit">Créer la Tâche</button>
+    </form>
+    
+    <!-- Lien pour revenir à la page d'accueil -->
+    <br>
+    <a href="{% url 'home' %}">Retour à l'accueil</a>
+
+</body>
+</html>
