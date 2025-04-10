@@ -20,4 +20,6 @@ class User(AbstractUser):
 class Team(models.Model):
     name = models.CharField(max_length=200)
 
+    
+
         
