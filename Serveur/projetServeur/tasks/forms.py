@@ -2,6 +2,7 @@
 
 from django.contrib.auth.forms import UserCreationForm 
 from .models import User
+from .models import Task
 from django import forms 
 
 class RegisterForm (UserCreationForm ):
@@ -11,5 +12,5 @@ class RegisterForm (UserCreationForm ):
         
 class Taskform(forms.ModelForm):
     class Meta :
-        model = User
+        model = Task
         fields = ['title', 'statut', 'description', 'parentTask', 'sonTask' ]

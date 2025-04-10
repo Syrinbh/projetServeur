@@ -7,7 +7,8 @@ from django.contrib.auth.models import AbstractUser
 class Task(models.Model): 
     title = models.CharField(max_length=200)
     statut = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    description = models.TextField()
+    #description = models.CharField(max_length=200)
     parentTask = models.CharField(max_length=200)
     sonTask = models.CharField(max_length=200)
         
