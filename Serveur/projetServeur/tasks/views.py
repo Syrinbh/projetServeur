@@ -63,3 +63,7 @@ def Create_task_view(request):
         else:
             form = Taskform()
     return render(request,'tasks/create_task.html',{'form': form})
+
+def List_task_view(request): 
+    tasks = Task.objects.all()
+    return render(request, 'tasks/List_task.html', {'tasks': tasks})

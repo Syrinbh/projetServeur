@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Charger le tag static -->
+    {% load static %}
+    <title> Page List </title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+      <h1>Liste des Tâches</h1>
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Statut</th>
+            <th>Créée par</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+            <tr>
+              <td>{{ task.title }}</td>
+              <td>{{ task.description }}</td>
+              <td>{{ task.statut }}</td>
+              <td>{{ task.createdby.username }}</td>
+              
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="5">Aucune tâche trouvée.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+
+
+</body>
+</html>
