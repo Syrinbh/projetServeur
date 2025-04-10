@@ -22,4 +22,8 @@ class Team(models.Model):
 
 
 
-        
+class CreatTask ():
+    Parent = models.ForeignKey('self',on_delete=models.SET_NULL)
+    createdby = models.ForeignKey('User',on_delete=models.SET_NULL)
+    assignedUsers = models.ManyToManyField('User')
+    assignedTeams = models.ManyToManyField('Team')
