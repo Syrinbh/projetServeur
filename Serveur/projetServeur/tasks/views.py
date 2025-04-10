@@ -3,6 +3,8 @@ from django.shortcuts import render,redirect
 # Create your views here.
 from django.http import HttpResponse
 from .forms import RegisterForm
+from .models import Task
+from .forms import Taskform
 from django.contrib.auth import authenticate,login
 
 def Register_view(request):
@@ -45,3 +47,13 @@ def Login_view(request):
 
 def home(request):
     return render(request, "tasks/home.html")
+
+
+def Creat_task_view(request):
+    if request.method == 'POST':
+        form = Taskform(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.createdby = request.user
+
+        return redirect('home')
