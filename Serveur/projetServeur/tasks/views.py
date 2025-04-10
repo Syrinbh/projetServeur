@@ -49,11 +49,17 @@ def home(request):
     return render(request, "tasks/home.html")
 
 
-def Creat_task_view(request):
+def Create_task_view(request):
     if request.method == 'POST':
         form = Taskform(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.createdby = request.user
+            task.save() 
+            task.save_m2m()
+            return redirect('home')
+            
 
-        return redirect('home')
+        else:
+            form = Taskform()
+    return render(request,'tasks/create_task.html',{'form': form})
