@@ -72,3 +72,20 @@ button {
 button:hover {
     background-color: #002244;
 }
+
+/* page index , message bienvenue */ 
+/* BIENVENUE */
+.welcome-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.welcome-container h1 {
+    font-size: 2.5em;
+    color: #003366;
+}
+
+.welcome-container p {
+    font-size: 1.2em;
+    color: #333;
+}
