@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponse
@@ -64,6 +64,21 @@ def Create_task_view(request):
             form = Taskform()
     return render(request,'tasks/create_task.html',{'form': form})
 
+<<<<<<< HEAD
 def List_task_view(request): 
     tasks = Task.objects.all()
     return render(request, 'tasks/List_task.html', {'tasks': tasks})
+=======
+
+def delete_task_view(request):
+    task = get_object_or_404(Task,id=task_id)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('home')
+    
+    return render(request,'tasks/list_task.html', {'task':task})
+
+def update_task_view(request):
+    if request.method == 'POST':
+        return redirect('home')
+>>>>>>> 1df8dc316390494e9fca0aaf73c7083e20f9fba8
