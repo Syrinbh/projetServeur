@@ -64,11 +64,9 @@ def Create_task_view(request):
             form = Taskform()
     return render(request,'tasks/create_task.html',{'form': form})
 
-<<<<<<< HEAD
 def List_task_view(request): 
     tasks = Task.objects.all()
     return render(request, 'tasks/List_task.html', {'tasks': tasks})
-=======
 
 def delete_task_view(request):
     task = get_object_or_404(Task,id=task_id)
@@ -81,4 +79,3 @@ def delete_task_view(request):
 def update_task_view(request):
     if request.method == 'POST':
         return redirect('home')
->>>>>>> 1df8dc316390494e9fca0aaf73c7083e20f9fba8
