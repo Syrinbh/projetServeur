@@ -65,10 +65,14 @@ def Create_task_view(request):
     return render(request,'tasks/create_task.html',{'form': form})
 
 
-def Delete_task(request):
+def delete_task_view(request):
     task = get_object_or_404(Task,id=task_id)
     if request.method == 'POST':
         task.delete()
         return redirect('home')
     
     return render(request,'tasks/list_task.html', {'task':task})
+
+def update_task_view(request):
+    if request.method == 'POST':
+        return redirect('home')
