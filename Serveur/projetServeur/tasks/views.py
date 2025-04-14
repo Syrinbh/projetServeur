@@ -80,14 +80,13 @@ def delete_task_view(request,task_id):
     
     return render(request,'tasks/list_task.html', {'task':task})
 
-<<<<<<< HEAD
-def update_task_view(request):
-    if request.method == 'POST':
-        return redirect('home')
-=======
-
-
 @login_required
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
->>>>>>> bbc05b124d48ce7717776fccf581aec301b3a981
+'''
+
+@login_required
+def update_task_view(request, task_id):
+    if request.method == 'POST':
+        return redirect('home')
+'''
