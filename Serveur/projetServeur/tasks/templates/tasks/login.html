@@ -9,17 +9,16 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="navbar-left">Web Serveur</div>
-        <div class="navbar-right">
-            <a href="register/">Register</a>
-            <a href="login/">Login</a>
     
+ <!-- Navbar simple -->
+   
+ <nav class="navbar">
+    <div class="navbar-left">
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">Web Serveur</a>
         </div>
-    </nav>
-  
-
+    </div>
+</nav>
 <!-- partie pour login -->
 <section class="register-part1">
     <h1><strong> Login Page </h1></strong>
