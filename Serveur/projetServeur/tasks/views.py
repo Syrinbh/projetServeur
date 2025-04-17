@@ -23,7 +23,6 @@ def Register_view(request):
     return render(request, "tasks/register.html",{'form': form})
 
 
-
 def Login_view(request):
     username = ''
     password = ''
