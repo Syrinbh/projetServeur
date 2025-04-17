@@ -24,10 +24,6 @@ def Register_view(request):
 
 
 def Login_view(request):
-    username = ''
-    password = ''
-
-    
     if request.method == 'POST' :
         username = request.POST["username"]
         password = request.POST["password"]
@@ -35,14 +31,13 @@ def Login_view(request):
         #user =authenticate(request, username , password)
         user = authenticate(request, username=username, password=password)
 
-        if(user != None):
+        if user:
             login(request,user)
             return redirect('home')
         
-        else :
-            print("error : Login-view request ")
+        
 
-    return render(request , "tasks/login.html",{'username' : username,'password' : password})
+    return render(request , "tasks/login.html")
             
 
 
@@ -78,17 +73,27 @@ def delete_task_view(request,task_id):
     task = get_object_or_404(Task,id=task_id,createdby=request.user)
     if request.method == 'POST':
         task.delete()
-        return redirect('home')
+        return redirect('list')
     return render(request,'tasks/Delete_task.html', {'task':task})
 
 @login_required
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
-    return redirect('home') 
-'''
-'''
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('list')  
+    else:
+        form = TaskForm()
+    return render(request, 'Update_task.html', {'form': form})
+
 '''
 
+@login_required
+def update_task_view(request, task_id):
+    task = get_object_or_404(Task, id=task_id )
+    return redirect('home')
 @login_required
 def update_task_view(request, task_id):
     if request.method == 'POST':
