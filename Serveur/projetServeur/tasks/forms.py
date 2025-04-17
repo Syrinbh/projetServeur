@@ -14,3 +14,7 @@ class Taskform(forms.ModelForm):
     class Meta :
         model = Task
         fields = ['title', 'statut', 'description', 'Parent', 'createdby' ,'assignedUsers','assignedTeams']
+
+
+# class Task(forms.ModelForm):
+#     class Meta:

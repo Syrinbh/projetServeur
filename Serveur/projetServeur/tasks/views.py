@@ -37,7 +37,7 @@ def Login_view(request):
 
         if(user != None):
             login(request,user)
-            return redirect('login')
+            return redirect('home')
         
         else :
             print("error : Login-view request ")
@@ -60,15 +60,15 @@ def Create_task_view(request):
             task.save() 
             form.save_m2m() #ou bien forms.save...
             return redirect('home')
-            
-
-        #else:
-         #   form = Taskform()
-    return render(request,'tasks/create_task.html',{'form': form})
+    else :
+        form = Taskform();
+    return render(request,'tasks/Create_task.html',{'form': form})
 
 def List_task_view(request): 
     tasks = Task.objects.all()
     return render(request, 'tasks/List_task.html', {'tasks': tasks})
+
+
 
 #doit prendre createdby dans getobjector404
 @login_required
