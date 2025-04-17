@@ -80,12 +80,12 @@ def delete_task_view(request,task_id):
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = Taskform(request.POST)
         if form.is_valid():
             form.save()
             return redirect('list')  
     else:
-        form = TaskForm()
+        form = Taskform()
     return render(request, 'Update_task.html', {'form': form})
 
 '''
