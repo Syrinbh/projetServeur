@@ -81,11 +81,11 @@ def delete_task_view(request,task_id):
         return redirect('home')
     return render(request,'tasks/Delete_task.html', {'task':task})
 
-'''
 @login_required
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
     return redirect('home') 
+'''
 '''
 '''
 
