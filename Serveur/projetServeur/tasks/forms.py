@@ -8,7 +8,7 @@ from django import forms
 class RegisterForm (UserCreationForm ):
     class Meta : 
         model = User
-        fields = ['username', 'email', 'description', 'password1', 'password2' ]
+        fields = ['username', 'email', 'description', 'password1' ]
         
 class Taskform(forms.ModelForm):
     class Meta :
