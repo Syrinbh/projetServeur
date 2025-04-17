@@ -166,3 +166,109 @@ a:hover {
 .btn-create-task:hover {
     background-color: #218838;
 }
+
+
+/* page List_task.html */ 
+/* === Table Container === */
+table {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+thead {
+  background-color: #2980b9;
+}
+thead th {
+  padding: 1rem;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+}
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* === Action Buttons === */
+td:last-child {
+  white-space: nowrap;
+}
+td:last-child a {
+  margin-right: 0.5rem;
+  text-decoration: none;
+}
+/* Remise à zéro des styles inline si présents */
+td:last-child button {
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+}
+/* === Boutons Modifier & Supprimer === */
+button.modify {
+    background-color: #4CAF50 !important;
+    color: #FFFFFF !important;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button.modify:hover {
+    background-color: #45A049 !important;
+  }
+  
+  button.delete {
+    background-color: #f44336 !important;
+    color: #FFFFFF !important;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  button.delete:hover {
+    background-color: #da190b !important;
+  }
+  
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    display: none;
+  }
+  tbody tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: .5rem;
+  }
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    border: none;
+  }
+  td:last-child {
+    text-align: center;
+  }
+}
