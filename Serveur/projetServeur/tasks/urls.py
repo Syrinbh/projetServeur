@@ -17,6 +17,7 @@ urlpatterns = [
     #path('update/', views.Update_task_view, name = 'update'), 
     path('delete/', views.delete_task_view, name = 'delete'), 
     # path('')
+    
 
 
 ]
