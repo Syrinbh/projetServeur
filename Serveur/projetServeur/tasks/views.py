@@ -37,7 +37,7 @@ def Login_view(request):
 
         if(user != None):
             login(request,user)
-            return redirect('login')
+            return redirect('home')
         
         else :
             print("error : Login-view request ")
@@ -69,6 +69,8 @@ def Create_task_view(request):
 def List_task_view(request): 
     tasks = Task.objects.all()
     return render(request, 'tasks/List_task.html', {'tasks': tasks})
+
+
 
 #doit prendre createdby dans getobjector404
 @login_required
