@@ -58,12 +58,12 @@ def Create_task_view(request):
             task = form.save(commit=False)
             task.createdby = request.user
             task.save() 
-            task.save_m2m()
+            form.save_m2m() #ou bien forms.save...
             return redirect('home')
             
 
-        else:
-            form = Taskform()
+        #else:
+         #   form = Taskform()
     return render(request,'tasks/create_task.html',{'form': form})
 
 def List_task_view(request): 
@@ -78,11 +78,14 @@ def delete_task_view(request,task_id):
         task.delete()
         return redirect('home')
     
-    return render(request,'tasks/list_task.html', {'task':task})
+    return render(request,'tasks/Delete_task.html', {'task':task})
 
+'''
 @login_required
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
+    return redirect('home') 
+'''
 '''
 
 @login_required

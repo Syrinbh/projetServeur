@@ -15,7 +15,7 @@ urlpatterns = [
     path('create/', views.Create_task_view, name = 'create'), 
     path('list/', views.List_task_view, name = 'list'), 
     #path('update/', views.Update_task_view, name = 'update'), 
-    #path('delete/', views.Delete_task_view, name = 'delete'), 
+    path('delete/', views.delete_task_view, name = 'delete'), 
     # path('')
 
 
