@@ -31,7 +31,15 @@
               <td>{{ task.description }}</td>
               <td>{{ task.statut }}</td>
               <td>{{ task.createdby.username }}</td>
-              
+              <td>
+                <!-- Boutons liés à chaque tâche -->
+                <a href="{% url 'update' task.id %}">
+                    <button style="background-color: #4CAF50; color: white;">Modifier</button>
+                </a>
+                <a href="{% url 'delete' task.id %}">
+                    <button style="background-color: #f44336; color: white;">Supprimer</button>
+                </a>
+            </td>
             </tr>
           {% empty %}
             <tr>
@@ -39,6 +47,7 @@
             </tr>
           {% endfor %}
         </tbody>
+      
       </table>
     
 

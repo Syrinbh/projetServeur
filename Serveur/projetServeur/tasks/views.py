@@ -2,9 +2,10 @@ from django.shortcuts import render,redirect,get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponse
-from .forms import RegisterForm
+#from .forms import RegisterForm
+from .forms import * 
 from .models import Task
-from .forms import Taskform
+#from .forms import Taskform
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 
@@ -58,10 +59,12 @@ def Create_task_view(request):
             task = form.save(commit=False)
             task.createdby = request.user
             task.save() 
-            form.save_m2m() #ou bien forms.save...
+            form.save_m2m() 
             return redirect('home')
-    else :
-        form = Taskform();
+            
+
+    else:
+        form = Taskform()
     return render(request,'tasks/Create_task.html',{'form': form})
 
 def List_task_view(request): 
@@ -73,11 +76,10 @@ def List_task_view(request):
 #doit prendre createdby dans getobjector404
 @login_required
 def delete_task_view(request,task_id):
-    task = get_object_or_404(Task,id=task_id)
+    task = get_object_or_404(Task,id=task_id,createdby=request.user)
     if request.method == 'POST':
         task.delete()
         return redirect('home')
-    
     return render(request,'tasks/Delete_task.html', {'task':task})
 
 '''
