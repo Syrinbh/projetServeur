@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Charger le tag static -->
     {% load static %}
-    <title>Bienvenue</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+    <title>page d'acceuil Web Serveur</title>
 </head>
 <body>
 
@@ -27,7 +28,22 @@
     <h1>Bienvenue sur Web Serveur</h1>
     <p>Connectez-vous ou inscrivez-vous pour commencer.</p>
 </section>
-<a href="{% url 'create' %}" class="btn-create-task">Créer une Tâche</a>
+<a href="{% url 'create' %}" class="btn-task create">Créer une Tâche</a>
+<!-- j'ignore les tasks sans id -->
+
+{% for task in tasks %}
+    <div class="task-item">
+        <p>{{ task.title }}</p>
+
+        {% if task.id %}
+            <a href="{% url 'update' task.id %}" class="btn-task update">Modifier</a>
+            <a href="{% url 'delete' task.id %}" class="btn-task delete">Supprimer</a>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>Aucune tâche trouvée.</p>
+{% endfor %}
+
 
 
 </body>

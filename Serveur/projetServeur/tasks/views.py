@@ -8,6 +8,8 @@ from .models import Task
 #from .forms import Taskform
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
+from . import views
+
 
 
 def Register_view(request):
@@ -35,12 +37,8 @@ def Login_view(request):
             login(request,user)
             return redirect('home')
         
-        
-
     return render(request , "tasks/login.html")
             
-
-
 
 def home(request):
     return render(request, "tasks/home.html")

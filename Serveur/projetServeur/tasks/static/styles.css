@@ -152,22 +152,43 @@ a {
 a:hover {
     text-decoration: underline;
 }
-.btn-create-task {
-    display: inline-block;
-    background-color: #28a745;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+
+
+/* style pour btn update et delete */
+.btn-task {
+  display: inline-block;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
 }
 
-.btn-create-task:hover {
-    background-color: #218838;
+.btn-task.update {
+  background-color: #17a2b8; 
 }
 
+.btn-task.update:hover {
+  background-color: #138496;
+}
 
+.btn-task.delete {
+  background-color: #dc3545; 
+}
+
+.btn-task.delete:hover {
+  background-color: #c82333;
+}
+
+.btn-task.create {
+  background-color: #218838; 
+}
+
+.btn-task.create:hover {
+  background-color: #0f4019;
+}
 /* page List_task.html */ 
 /* === Table Container === */
 table {
