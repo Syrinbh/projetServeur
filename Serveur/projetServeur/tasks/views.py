@@ -116,7 +116,9 @@ def join_team_view(request, team_id):
         return redirect('joinTeam')
     
     # Vérifier si l'utilisateur est déjà membre
+    
     is_member = team.members.filter(id=request.user.id).exists()
+    
     
     return render(request, 'tasks/Join_team.html', {
         'team': team,
