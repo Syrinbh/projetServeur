@@ -26,5 +26,8 @@ class Team(models.Model):
     members = models.ManyToManyField('User')  
     task_list = models.ManyToManyField('Task')  # Liste des tâches
 
+    def __str__(self):
+        return self.name
+
 
 
