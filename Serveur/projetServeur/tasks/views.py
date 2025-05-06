@@ -100,7 +100,7 @@ def create_team_view(request):
             team = form.save(commit=False)
             team.save()
             form.save_m2m()  # Pour sauvegarder les relations ManyToMany
-            return redirect('list')  # Rediriger vers la liste des tâches
+            return redirect('home')  # Rediriger vers la liste des tâches
     else:
         form = TeamForm(initial={'members': [request.user]})   
 
