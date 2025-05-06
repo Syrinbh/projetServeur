@@ -5,8 +5,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Task(models.Model): 
+    statutChoice = [('privée','Privée'),('publique','Publique')]
     title = models.CharField(max_length=200,default='none')
-    statut = models.CharField(max_length=200,default='none')
+    statut = models.CharField(max_length=200,choices=statutChoice,default='privée')
     description = models.TextField()
     #description = models.CharField(max_length=200)
     private = models.BooleanField(default=False)

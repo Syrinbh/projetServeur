@@ -43,7 +43,7 @@ def Login_view(request):
 def home(request):
     return render(request, "tasks/home.html")
 
-
+@login_required
 def Create_task_view(request):
     if request.method == 'POST':
         form = Taskform(request.POST)
