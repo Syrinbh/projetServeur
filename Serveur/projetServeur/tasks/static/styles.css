@@ -268,6 +268,56 @@ button.modify {
     background-color: #da190b !important;
   }
   
+/* Page join team */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.team-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+.join-form {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.form-actions {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-btn {
+  background: #28a745;
+  color: white;
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: white;
+  text-decoration: none;
+}
+
+.alert.error {
+  color: #dc3545;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #dc3545;
+}
 
 /* === Responsive === */
 @media (max-width: 768px) {
