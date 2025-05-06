@@ -104,7 +104,7 @@ def create_team_view(request):
     else:
         form = TeamForm(initial={'members': [request.user]})   
 
-    return render(request, 'tasks/create_team.html', {'form': form})
+    return render(request, 'tasks/Create_team.html', {'form': form})
 
 @login_required
 def join_team_view(request, team_id):
@@ -116,9 +116,11 @@ def join_team_view(request, team_id):
         return redirect('joinTeam')
     
     # Vérifier si l'utilisateur est déjà membre
+    
     is_member = team.members.filter(id=request.user.id).exists()
     
-    return render(request, 'tasks/join_team.html', {
+    
+    return render(request, 'tasks/Join_team.html', {
         'team': team,
         'is_member': is_member
     })

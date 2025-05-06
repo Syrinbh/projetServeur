@@ -21,7 +21,7 @@ class Taskform(forms.ModelForm):
 class TeamForm(forms.ModelForm):
     class Meta:
         model = Team
-        fields = ['name', 'members', 'task_list']
+        fields = ['name', 'members']
 
 # class Task(forms.ModelForm):
 #     class Meta:
