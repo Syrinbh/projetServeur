@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User
 from .models import Task
 from django import forms 
+from .models import Team
 
 class RegisterForm (UserCreationForm ):
     class Meta : 
@@ -16,6 +17,11 @@ class Taskform(forms.ModelForm):
         model = Task
         fields = ['title', 'statut', 'description', 'Parent', 'createdby' ,'assignedUsers','assignedTeams']
 
+#team form 
+class TeamForm(forms.ModelForm):
+    class Meta:
+        model = Team
+        fields = ['name', 'members', 'task_list']
 
 # class Task(forms.ModelForm):
 #     class Meta:

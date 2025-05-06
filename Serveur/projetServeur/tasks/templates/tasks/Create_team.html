@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Charger le tag static -->
+    {% load static %}
+    <title>Créer une equipe</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+     <!-- Navbar simple -->
+   
+ <nav class="navbar">
+    <div class="navbar-left">
+        <div class="navbar-right">
+            <a href="{% url 'home' %}">Web Serveur</a>
+        </div>
+    </div>
+</nav>
+
+    <h1>Créer une Equipe !</h1>
+    
+    <!-- Formulaire pour créer une equipe -->
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }} 
+        <button type="submit">Créer l'equipe</button>
+    </form>
+
+</body>
+</html>

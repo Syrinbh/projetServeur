@@ -9,7 +9,7 @@ from .models import Task
 from django.contrib.auth import authenticate,login
 from django.contrib.auth.decorators import login_required
 from . import views
-
+from .models import Team
 
 
 def Register_view(request):
@@ -43,7 +43,7 @@ def Login_view(request):
 def home(request):
     return render(request, "tasks/home.html")
 
-
+@login_required
 def Create_task_view(request):
     if request.method == 'POST':
         form = Taskform(request.POST)
@@ -86,6 +86,22 @@ def update_task_view(request, task_id):
         form = Taskform()
     return render(request, 'Update_task.html', {'form': form})
 
+#Team 
+
+@login_required
+def create_team_view(request):
+    if request.method == 'POST':
+        form = TeamForm(request.POST)
+        if form.is_valid():
+            team = form.save(commit=False)
+            # Ajouter ici des logiques supplémentaires si nécessaire
+            team.save()
+            form.save_m2m()  # Pour sauvegarder les relations ManyToMany
+            return redirect('list')  # Rediriger vers la liste des tâches
+    else:
+        form = TeamForm(initial={'members': [request.user]})  # Pré-sélectionner l'utilisateur courant
+
+    return render(request, 'tasks/create_team.html', {'form': form})
 '''
 
 @login_required

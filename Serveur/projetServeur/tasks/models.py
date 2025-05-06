@@ -22,6 +22,8 @@ class User(AbstractUser):
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
+    members = models.ManyToManyField('User')  
+    task_list = models.ManyToManyField('Task')  # Liste des tâches
 
 
 
