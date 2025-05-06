@@ -140,7 +140,7 @@ def delete_team_view(request, team_id):
         team.delete()
         return redirect('home')
     
-    return render(request,Delete_team.html, name = 'deleteTeam')
+    return render(request,'tasks/Delete_team.html', name = 'deleteTeam')
 '''
 
 @login_required
