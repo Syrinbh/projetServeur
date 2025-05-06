@@ -109,7 +109,7 @@ def join_team_view(request, team_id):
     if request.method == 'POST':
         # Ajouter l'utilisateur à l'équipe
         team.members.add(request.user)
-        return redirect('list')
+        return redirect('joinTeam')
     
     # Vérifier si l'utilisateur est déjà membre
     is_member = team.members.filter(id=request.user.id).exists()
