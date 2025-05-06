@@ -19,7 +19,7 @@ urlpatterns = [
     path('createTeam/', views.create_team_view, name='createTeam'),
     path('joinTeam/', views.join_team_view, name='joinTeam'),
     path('logout/',views.Logout_view,name='logout'),
-    path('quitTeam/', views.quit_team_view, name='quitTeam'),
+    path('quitTeam/<int:team_id>/', views.quit_team_view, name='quitTeam'),
 
     path('deleteTeam/', views.delete_team_view, name='deleteTeam')
 
