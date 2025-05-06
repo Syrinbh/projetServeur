@@ -1,6 +1,6 @@
 # projetServeur
 Projet serveur 2025
-Binome : Syrine BEN HASSINE / Jean-baptiste 
+Binome : Syrine BEN HASSINE / Jean-baptiste LARGERON
 # Web Serveur - Documentation des Routes
 
 ## 🌐 Routes Principales
