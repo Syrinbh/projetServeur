@@ -94,14 +94,33 @@ def create_team_view(request):
         form = TeamForm(request.POST)
         if form.is_valid():
             team = form.save(commit=False)
-            # Ajouter ici des logiques supplémentaires si nécessaire
             team.save()
             form.save_m2m()  # Pour sauvegarder les relations ManyToMany
             return redirect('list')  # Rediriger vers la liste des tâches
     else:
-        form = TeamForm(initial={'members': [request.user]})  # Pré-sélectionner l'utilisateur courant
+        form = TeamForm(initial={'members': [request.user]})   
 
     return render(request, 'tasks/create_team.html', {'form': form})
+
+@login_required
+def join_team_view(request, team_id):
+    team = get_object_or_404(Team, id=team_id)
+    
+    if request.method == 'POST':
+        # Ajouter l'utilisateur à l'équipe
+        team.members.add(request.user)
+        return redirect('list')
+    
+    # Vérifier si l'utilisateur est déjà membre
+    is_member = team.members.filter(id=request.user.id).exists()
+    
+    return render(request, 'tasks/join_team.html', {
+        'team': team,
+        'is_member': is_member
+    })
+
+
+
 '''
 
 @login_required
