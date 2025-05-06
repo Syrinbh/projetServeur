@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from .forms import * 
 from .models import Task
 #from .forms import Taskform
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from . import views
 from .models import Team
@@ -39,6 +39,10 @@ def Login_view(request):
         
     return render(request , "tasks/login.html")
             
+def Logout_view(request):
+    logout(request)
+    return redirect('home')
+
 
 def home(request):
     return render(request, "tasks/home.html")

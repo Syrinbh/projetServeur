@@ -18,10 +18,16 @@
 
             <a href="{% url 'home' %}">Web Serveur</a>
         </div>
+
     </div>
     <div class="navbar-right">
-        <a href="register/">Register</a>
-        <a href="login/">Login</a>
+        {% if user.is_authenticated %}
+            <p>Connecté : {{ user.username }}</p>
+            <a href="{%url 'lgout' %}">Se déconnecter</a>
+        {% else %}
+            <a href="register/">Register</a>
+            <a href="login/">Login</a>
+        {% endif %}
     </div>
 </nav>
 <section class="welcome-container">
