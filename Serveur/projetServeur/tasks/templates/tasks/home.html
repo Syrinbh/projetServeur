@@ -36,6 +36,8 @@
 </section>
 <a href="{% url 'create' %}" class="btn-task create">Créer une Tâche</a>
 <a href="{% url 'createTeam' %}" class="btn-task create">Créer une Équipe</a>
+
+<a href="{% url 'list' %}" class="btn-task create">Liste des taches</a>
 <!-- j'ignore les tasks sans id -->
 
 {% for task in tasks %}
