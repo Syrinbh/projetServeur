@@ -125,8 +125,22 @@ def join_team_view(request, team_id):
         'is_member': is_member
     })
 
+@login_required
+def quit_team_view(request,team_id):
+    team = get_object_or_404(Team, id=team_id)
+    if request.user in team.members.all():
+        team.members.remove(request.user)
 
+    return redirect('home')
 
+@login_required
+def delete_team_view(request, team_id):
+    team = get_object_or_404(Team,id = team_id)
+    if request == 'POST':
+        team.delete()
+        return redirect('home')
+    
+    return render(request,Delete_team.html, name = 'deleteTeam')
 '''
 
 @login_required
