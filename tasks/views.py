@@ -10,6 +10,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from . import views
 from .models import Team
+from django.http import HttpResponseForbidden
 
 
 def Register_view(request):
@@ -81,13 +82,15 @@ def delete_task_view(request,task_id):
 @login_required
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
+    if request.user != task.createdby or request.user not in task.assignedUsers :
+        return HttpResponseForbidden("Vous n'avez pas le droit de modifier la tâche ")
     if request.method == 'POST':
-        form = Taskform(request.POST)
+        form = Taskform(request.POST, instance=task)
         if form.is_valid():
             form.save()
             return redirect('list')  
     else:
-        form = Taskform()
+        form = Taskform(instance=task)
     return render(request, 'Update_task.html', {'form': form})
 
 #Team 
