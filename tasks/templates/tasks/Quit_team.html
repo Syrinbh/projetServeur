@@ -20,6 +20,21 @@
     </div>
 </nav>
 
+    <main class="QuitContainer">
+        <h1>Quitter l'équipe : {{ team.name }}</h1>
+
+        {% if user in team.members.all %}
+            <p>Êtes-vous sûr de vouloir quitter l'équipe <strong>{{ team.name }}</strong> ?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Quitter l'équipe</button>
+                <a href="{% url 'home' %}" class="btn btn-secondary">Annuler</a>
+            </form>
+        {% else %}
+            <p>Vous ne faites pas partie de cette équipe.</p>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Retour</a>
+        {% endif %}
+    </main>
 
 
 </body>
