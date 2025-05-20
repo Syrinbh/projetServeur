@@ -100,7 +100,7 @@ def update_task_view(request, task_id):
 #Team 
 def List_team_view(request):
     teams =Team.objects.all()
-    return render(request,'tasks/List_teams.html',{'teams' : teams})
+    return render(request,'tasks/List_team.html',{'teams' : teams})
 
 @login_required
 def create_team_view(request):
@@ -150,9 +150,9 @@ def delete_team_view(request, team_id):
     team = get_object_or_404(Team,id = team_id)
     if request == 'POST':
         team.delete()
-        return redirect('home')
+        return redirect('listTeam')
     
-    return render(request,'tasks/Delete_team.html', name = 'deleteTeam')
+    return render(request,'tasks/Delete_team.html', {'team': team})
 '''
 
 @login_required
