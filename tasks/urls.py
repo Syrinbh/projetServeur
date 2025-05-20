@@ -20,7 +20,9 @@ urlpatterns = [
     path('joinTeam/', views.join_team_view, name='joinTeam'),
     path('logout/',views.Logout_view,name='logout'),
     path('quitTeam/<int:team_id>/', views.quit_team_view, name='quitTeam'),
-    path('deleteTeam/', views.delete_team_view, name='deleteTeam')
-    path('listTeam/', views.List_team_view, name='listTeam')
+
+    #path('deleteTeam/', views.delete_team_view, name='deleteTeam')
+    path('listTeam/',views.List_team_view, name='listTeam')
+
 
 ]
