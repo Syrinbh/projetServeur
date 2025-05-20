@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
+from django.db.models import Q
 
 # Create your views here.
 from django.http import HttpResponse
@@ -65,7 +66,10 @@ def Create_task_view(request):
     return render(request,'tasks/Create_task.html',{'form': form})
 
 def List_task_view(request): 
-    tasks = Task.objects.all()
+    user = request.user
+    public_tasks = Task.objects.filter(statut='publique')
+    private_tasks = Task.objects.filter(statut='privée').filter(Q(createdby=user)|Q(assignedUsers=user))
+    tasks = public_tasks.union(private_tasks)
     return render(request, 'tasks/List_task.html', {'tasks': tasks})
 
 
