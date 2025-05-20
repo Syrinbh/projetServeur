@@ -4,7 +4,7 @@ Binome : Syrine BEN HASSINE / Jean-baptiste LARGERON
 # Web Serveur - Documentation des Routes
 
 ## 🌐 Routes Principales
-
+# explication architecture , page d'accueil : creer page , .. 
 ### Authentification
 | URL | Méthode | Description | Authentification Requise |
 |-----|---------|-------------|---------------------------|
@@ -25,5 +25,6 @@ Binome : Syrine BEN HASSINE / Jean-baptiste LARGERON
 |-----|---------|-------------|------------|
 | `/createTeam/` | GET/POST | Créer une nouvelle équipe | - |
 | `/joinTeam/` | POST | Rejoindre une équipe | - |
-| `/quitTeam/` | POST | Quitter une équipe | - |
+| `/quitTeam/<int:team_id>` | POST | Quitter une équipe | `team_id` |
 | `/deleteTeam/` | POST | Supprimer une équipe | - |
+| `/listTeam/` | GET | Lister les équipes | - |
