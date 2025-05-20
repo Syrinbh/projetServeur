@@ -94,6 +94,9 @@ def update_task_view(request, task_id):
     return render(request, 'Update_task.html', {'form': form})
 
 #Team 
+def List_team_view(request):
+    teams =teams.objects.all()
+    return render(request,'tasks/List_teams.html',{'form' : form})
 
 @login_required
 def create_team_view(request):
