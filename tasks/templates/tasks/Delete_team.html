@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Liste des équipes</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+                <a href="{% url 'home' %}">Web Serveur</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Supprimer l'équipe</h1>
+        <p>Êtes-vous sûr de vouloir supprimer l'équipe <strong>{{ team.name }}</strong> ? Cette action est irréversible.</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+            <a href="{% url 'listTeam' %}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </main>
+
+</body>
+</html>
