@@ -33,7 +33,7 @@
                             <button type="submit" class="btn btn-warning">Quitter</button>
                         </form>
                         {% else %}
-                            <a href="{% url 'joinTeam' %}" class="btn btn-primary">Rejoindre</a>
+                            <a href="{% url 'joinTeam' team.id %}" class="btn btn-primary">Rejoindre</a>
                         {% endif %}
 
                         {% if user.is_superuser %}
