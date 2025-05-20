@@ -133,8 +133,8 @@ def quit_team_view(request,team_id):
     team = get_object_or_404(Team, id=team_id)
     if request.user in team.members.all():
         team.members.remove(request.user)
-
     return redirect('home')
+    return render(request, 'tasks/Quit_team.html', {'team': team})
 
 @login_required
 def delete_team_view(request, team_id):
