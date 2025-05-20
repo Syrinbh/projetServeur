@@ -15,7 +15,7 @@ class RegisterForm (UserCreationForm ):
 class Taskform(forms.ModelForm):
     class Meta :
         model = Task
-        fields = ['title', 'statut', 'description', 'Parent', 'createdby' ,'assignedUsers','assignedTeams']
+        fields = ['title', 'statut', 'description', 'Parent','assignedUsers','assignedTeams']
 
 #team form 
 class TeamForm(forms.ModelForm):

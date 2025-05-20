@@ -68,7 +68,7 @@ def Create_task_view(request):
 def List_task_view(request): 
     user = request.user
     public_tasks = Task.objects.filter(statut='publique')
-    private_tasks = Task.objects.filter(statut='privée').filter(Q(createdby=user)|Q(assignedUsers=user))
+    private_tasks = Task.objects.filter(statut='privée').filter(Q(createdby=user)|Q(assignedUsers=user)|Q(assignedTeams__members=user)).distinct()
     tasks = public_tasks.union(private_tasks)
     return render(request, 'tasks/List_task.html', {'tasks': tasks})
 
