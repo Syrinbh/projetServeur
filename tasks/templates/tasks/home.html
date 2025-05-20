@@ -40,19 +40,20 @@
 <a href="{% url 'deleteTeam' %}" class="btn-task create">Supprimer une equipe </a>
 
 <!-- j'ignore les tasks sans id -->
-
-{% for task in tasks %}
+<!--  
+    {% for task in tasks %}
     <div class="task-item">
         <p>{{ task.title }}</p>
-
+        
         {% if task.id %}
-            <a href="{% url 'update' task.id %}" class="btn-task update">Modifier</a>
-            <a href="{% url 'delete' task.id %}" class="btn-task delete">Supprimer</a>
+        <a href="{% url 'update' task.id %}" class="btn-task update">Modifier</a>
+        <a href="{% url 'delete' task.id %}" class="btn-task delete">Supprimer</a>
         {% endif %}
     </div>
-{% empty %}
+    {% empty %}
     <p>Aucune tâche trouvée.</p>
-{% endfor %}
+    {% endfor %}
+-->
 
 
 
