@@ -146,9 +146,9 @@ def delete_team_view(request, team_id):
     team = get_object_or_404(Team,id = team_id)
     if request == 'POST':
         team.delete()
-        return redirect('home')
+        return redirect('listTeam')
     
-    return render(request,'tasks/Delete_team.html', name = 'deleteTeam')
+    return render(request,'tasks/Delete_team.html', {'team': team})
 '''
 
 @login_required
