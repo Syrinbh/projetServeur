@@ -148,7 +148,7 @@ def quit_team_view(request,team_id):
 @login_required
 def delete_team_view(request, team_id):
     team = get_object_or_404(Team,id = team_id)
-    if request == 'POST':
+    if request.method == 'POST':
         team.delete()
         return redirect('listTeam')
     
