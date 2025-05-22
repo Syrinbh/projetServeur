@@ -29,7 +29,8 @@
             <th>Description</th>
             <th>Statut</th>
             <th>Créée par</th>
-            <th>Actions</th>
+            <th>Equipes Assignées</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +41,14 @@
               <td>{{ task.description }}</td>
               <td>{{ task.statut }}</td>
               <td>{{ task.createdby.username }}</td>
+              <td>{% if task.assignedTeams.exists %}
+                    {% for team in task.assignedTeams.all %}
+                      {{ team.name }} {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    <em>Aucune</em>
+                  {% endif %}
+              </td>
               <td>
                 <!-- Boutons liés à chaque tâche -->
                 <a href="{% url 'update' task.id %}">

@@ -23,7 +23,7 @@ class User(AbstractUser):
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
-    members = models.ManyToManyField('User')  
+    members = models.ManyToManyField('User',related_name="teams")  
     task_list = models.ManyToManyField('Task')  # Liste des tâches
 
     def __str__(self):
