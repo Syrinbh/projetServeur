@@ -143,7 +143,7 @@ def quit_team_view(request,team_id):
 
     if request.method == 'POST':
         team.members.remove(request.user)
-        return redirect('quitTeam', team_id=team.id)
+        return redirect('listTeam')
 
     return render(request, 'tasks/Quit_team.html', {'team': team})
 
