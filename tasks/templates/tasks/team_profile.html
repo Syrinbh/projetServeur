@@ -1,0 +1,25 @@
+
+
+{% block content %}
+  <h2>Profil de l'équipe : {{ team.name }}</h2>
+
+  <h3>Membres</h3>
+  <ul>
+    {% for member in members %}
+      <li>{{ member.username }} ({{ member.email }})</li>
+    {% empty %}
+      <li>Aucun membre</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Tâches assignées</h3>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task.title }} - {{ task.statut }}</li>
+    {% empty %}
+      <li>Aucune tâche assignée</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'List_team' %}">← Retour à la liste des équipes</a>
+{% endblock %}

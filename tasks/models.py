@@ -18,6 +18,7 @@ class Task(models.Model):
         
 class User(AbstractUser):
     #name = models.CharField(max_length=200)
+    USERNAME_FIELD='username'
     description = models.CharField(max_length=200)
     
 
