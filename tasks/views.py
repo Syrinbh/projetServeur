@@ -29,11 +29,11 @@ def Register_view(request):
 
 def Login_view(request):
     if request.method == 'POST' :
-        username = request.POST["username"]
+        mail = request.POST["mail"]
         password = request.POST["password"]
 
-        #user =authenticate(request, username , password)
-        user = authenticate(request, username=username, password=password)
+        #user =authenticate(request, mail , password)
+        user = authenticate(request, mail=mail, password=password)
 
         if user:
             login(request,user)
