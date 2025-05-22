@@ -86,7 +86,7 @@ def delete_task_view(request,task_id):
 @login_required
 def update_task_view(request, task_id):
     task = get_object_or_404(Task, id=task_id )
-    if request.user != task.createdby or request.user not in task.assignedUsers :
+    if request.user != task.createdby and request.user not in task.assignedUsers :
         return HttpResponseForbidden("Vous n'avez pas le droit de modifier la tâche ")
     if request.method == 'POST':
         form = Taskform(request.POST, instance=task)
