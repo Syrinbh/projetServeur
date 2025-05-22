@@ -19,6 +19,7 @@ urlpatterns = [
     path('joinTeam/<int:team_id>/', views.join_team_view, name='joinTeam'),
     path('quitTeam/<int:team_id>/', views.quit_team_view, name='quitTeam'),
     path('deleteTeam<int:team_id>/', views.delete_team_view, name='deleteTeam'),
-    path('listTeam/',views.List_team_view, name='listTeam')
+    path('listTeam/',views.List_team_view, name='listTeam'),
+    path('team/<int:team_id>/',views.team_profile_view, name='teamProfile')
 
 ]

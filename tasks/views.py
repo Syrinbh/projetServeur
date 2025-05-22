@@ -29,11 +29,11 @@ def Register_view(request):
 
 def Login_view(request):
     if request.method == 'POST' :
-        mail = request.POST["mail"]
+        username = request.POST["username"]
         password = request.POST["password"]
 
         #user =authenticate(request, mail , password)
-        user = authenticate(request, mail=mail, password=password)
+        user = authenticate(request, username=username, password=password)
 
         if user:
             login(request,user)
@@ -156,3 +156,9 @@ def delete_team_view(request, team_id):
     
     return render(request,'tasks/Delete_team.html', {'team': team})
 
+@login_required
+def team_profile_view(request, team_id):
+    team = get_object_or_404(Team, id=team_id)
+    tasks = team.assignedtask_set.all()  # ou team.assignedTasks.all() selon ton related_name
+    members = team.members.all()
+    return render(request, 'tasks/team_profile.html', {'team': team, 'tasks': tasks, 'members': members})
