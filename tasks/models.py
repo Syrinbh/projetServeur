@@ -14,7 +14,7 @@ class Task(models.Model):
     Parent = models.ForeignKey('self',null = True,blank=True,on_delete=models.SET_NULL,related_name="subtask")
     createdby = models.ForeignKey('User',null=True,blank=True,on_delete=models.SET_NULL,related_name='createdTasks')
     assignedUsers = models.ManyToManyField('User')
-    assignedTeams = models.ManyToManyField('Team')
+    assignedTeams = models.ManyToManyField('Team',related_name='assigned_tasks',blank=True)
         
 class User(AbstractUser):
     #name = models.CharField(max_length=200)

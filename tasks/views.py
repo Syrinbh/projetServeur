@@ -159,6 +159,6 @@ def delete_team_view(request, team_id):
 @login_required
 def team_profile_view(request, team_id):
     team = get_object_or_404(Team, id=team_id)
-    tasks = team.task_list.all()  
+    tasks = team.assigned_tasks.all()  
     members = team.members.all()
     return render(request, 'tasks/team_profile.html', {'team': team, 'tasks': tasks, 'members': members})
