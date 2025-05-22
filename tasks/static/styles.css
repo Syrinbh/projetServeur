@@ -101,7 +101,7 @@ h1 {
 }
 
 /* Form styling */
-form {
+form.task-form, form.register-form, form.login-form {
     background-color: #fff;
     padding: 25px;
     border-radius: 8px;
@@ -125,7 +125,8 @@ select {
 
 /* Submit button */
 button[type="submit"] {
-  width: 100%;
+    display:inline-block;
+    width: 30%;
     background-color: #134698;
     color: white;
     border: none;
