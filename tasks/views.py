@@ -29,11 +29,11 @@ def Register_view(request):
 
 def Login_view(request):
     if request.method == 'POST' :
-        username = request.POST["username"]
+        mail = request.POST["mail"]
         password = request.POST["password"]
 
-        #user =authenticate(request, username , password)
-        user = authenticate(request, username=username, password=password)
+        #user =authenticate(request, mail , password)
+        user = authenticate(request, mail=mail, password=password)
 
         if user:
             login(request,user)
@@ -95,7 +95,7 @@ def update_task_view(request, task_id):
             return redirect('list')  
     else:
         form = Taskform(instance=task)
-    return render(request, 'Update_task.html', {'form': form})
+    return render(request, 'tasks/Update_task.html', {'form': form})
 
 #Team 
 def List_team_view(request):
@@ -153,14 +153,4 @@ def delete_team_view(request, team_id):
         return redirect('listTeam')
     
     return render(request,'tasks/Delete_team.html', {'team': team})
-'''
 
-@login_required
-def update_task_view(request, task_id):
-    task = get_object_or_404(Task, id=task_id )
-    return redirect('home')
-@login_required
-def update_task_view(request, task_id):
-    if request.method == 'POST':
-        return redirect('home')
-'''
