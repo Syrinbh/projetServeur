@@ -65,6 +65,8 @@ def Create_task_view(request):
         form = Taskform()
     return render(request,'tasks/Create_task.html',{'form': form})
 
+
+@login_required
 def List_task_view(request): 
     user = request.user
     public_tasks = Task.objects.filter(statut='publique')
@@ -141,7 +143,7 @@ def quit_team_view(request,team_id):
 
     if request.method == 'POST':
         team.members.remove(request.user)
-        return redirect('home')
+        return redirect('quitTeam', team_id=team.id)
 
     return render(request, 'tasks/Quit_team.html', {'team': team})
 
