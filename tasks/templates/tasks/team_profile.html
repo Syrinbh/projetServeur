@@ -1,4 +1,22 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Liste des équipes</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+                <a href="{% url 'home' %}">Web Serveur</a>
+            </div>
+        </div>
+    </nav>
 
 {% block content %}
   <h2>Profil de l'équipe : {{ team.name }}</h2>
@@ -21,5 +39,5 @@
     {% endfor %}
   </ul>
 
-  <a href="{% url 'List_team' %}">← Retour à la liste des équipes</a>
+  <a class="btn" href="{% url 'listTeam' %}">← Retour à la liste des équipes</a>
 {% endblock %}

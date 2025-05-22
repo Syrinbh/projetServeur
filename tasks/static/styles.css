@@ -41,6 +41,7 @@ body {
     color: #003366;
 }
 
+
 form div {
     margin-bottom: 15px;
 }
@@ -144,13 +145,24 @@ button[type="submit"]:hover {
 /* Link to return */
 a {
     display: block;
+    padding: 10px;
     text-align: center;
     margin-top: 20px;
     color: #134698;
     text-decoration: none;
     font-weight: 500;
 }
-
+a.link{
+  width: 30%;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color:white;
+  background-color: #134698;
+}
+a.link:hover{
+  background-color: #003366;
+}
 a:hover {
     text-decoration: underline;
 }
