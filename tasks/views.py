@@ -123,7 +123,7 @@ def join_team_view(request, team_id):
     if request.method == 'POST':
         # Ajouter l'utilisateur à l'équipe
         team.members.add(request.user)
-        return redirect('joinTeam')
+        return redirect('listTeam')
     
     # Vérifier si l'utilisateur est déjà membre
     
@@ -143,7 +143,7 @@ def quit_team_view(request,team_id):
         team.members.remove(request.user)
         return redirect('home')
 
-    return render(request, 'tasks/quit_team.html', {'team': team})
+    return render(request, 'tasks/Quit_team.html', {'team': team})
 
 @login_required
 def delete_team_view(request, team_id):
