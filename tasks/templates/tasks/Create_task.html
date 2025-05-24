@@ -26,13 +26,24 @@
 <body>
      <!-- Navbar simple -->
    
- <nav class="navbar">
-    <div class="navbar-left">
-        <div class="navbar-right">
-            <a href="{% url 'home' %}">Web Serveur</a>
+     <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+    
+                <a href="{% url 'home' %}">Web Serveur</a>
+            </div>
+    
         </div>
-    </div>
-</nav>
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <p>Connecté : {{ user.username }}</p>
+                <a href="{%url 'logout' %}">Se déconnecter</a>
+            {% else %}
+                <a href="register/">Register</a>
+                <a href="login/">Login</a>
+            {% endif %}
+        </div>
+    </nav>
 
     <h1>Créer une Nouvelle Tâche</h1>
     

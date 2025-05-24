@@ -11,12 +11,23 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="navbar-left">
-            <div class="navbar-right">
-                <a href="{% url 'home' %}">Web Serveur</a>
-            </div>
-        </div>
-    </nav>
+      <div class="navbar-left">
+          <div class="navbar-right">
+  
+              <a href="{% url 'home' %}">Web Serveur</a>
+          </div>
+  
+      </div>
+      <div class="navbar-right">
+          {% if user.is_authenticated %}
+              <p>Connecté : {{ user.username }}</p>
+              <a href="{%url 'logout' %}">Se déconnecter</a>
+          {% else %}
+              <a href="register/">Register</a>
+              <a href="login/">Login</a>
+          {% endif %}
+      </div>
+  </nav>
 
 {% block content %}
   <h2>Profil de l'équipe : {{ team.name }}</h2>
