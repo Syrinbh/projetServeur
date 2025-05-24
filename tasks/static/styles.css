@@ -10,7 +10,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #134698; /* bleu foncé */
+    background-color: #134698; 
     padding: 10px 20px;
     color: rgb(255, 255, 255);
 }
