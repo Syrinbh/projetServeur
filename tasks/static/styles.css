@@ -205,11 +205,11 @@ a:hover {
 .btn-home {
   display: flex;
   gap: 1.5rem;         
-  flex-wrap: wrap;     
-  justify-content: flex-start;
+  flex-wrap: nowrap;     
+  justify-content: center;
+  align-items: center;
   max-width: 600px;   
   width: 100%;
-  padding-left: 10%;
   margin: 0 auto; 
 }
 

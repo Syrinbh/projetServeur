@@ -1,10 +1,16 @@
 
-
-#Imports
+#IMPORTS 
 
 from django.shortcuts import render,redirect,get_object_or_404
 from django.db.models import Q
+
+# Create your views here.
 from django.http import HttpResponse
+#from .forms import RegisterForm
+
+from django.shortcuts import render, redirect
+
+from django.contrib.auth import get_user_model
 from .forms import * 
 from .models import Task
 from django.contrib.auth import authenticate,login,logout
@@ -13,14 +19,12 @@ from . import views
 from .models import Team
 from django.http import HttpResponseForbidden
 
-
-
-
-
-
 #################################################
 #                   Login/Register              #
 #################################################
+
+from django.contrib.auth import get_user_model
+from django.contrib.auth.hashers import check_password
 
 
 def Register_view(request):
