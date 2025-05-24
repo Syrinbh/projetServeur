@@ -34,9 +34,9 @@
         </div>
     </nav>
     
-    
-    <main class="container">
-        <h1 class="page-title">Rejoindre une équipe</h1>
+    <div class="team-container">
+        <div class="team-card">
+          <h2 class="team-name">Rejoindre l'équipe</h2>
         
         {% if team %}
         <div class="team-card">
@@ -55,17 +55,26 @@
             {% endif %}
 
             <div class="form-actions">
-                <button type="submit" class="btn confirm-btn">
-                  <i class="fas fa-check-circle"></i>
-                  Confirmer 
+                <button type="submit" class="btn btn-success">
+                  <i class="fas fa-check"></i> Confirmer
                 </button>
-                
-                <a href="{% url 'listTeam' %}" class="btn cancel-btn">
-                  <i class="fas fa-times-circle"></i>
-                  Annuler
+                <a href="{% url 'listTeam' %}" class="btn btn-secondary">
+                  <i class="fas fa-times"></i> Annuler
                 </a>
               </div>
+            </div>
+          </div>
+          
         </form>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2025 Gestion des tâches 
+                <a> Mentions légales</a> 
+                <a> Contact</a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
