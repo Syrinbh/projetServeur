@@ -12,13 +12,12 @@
 <body>
      <!-- Navbar simple -->
    
+   
      <nav class="navbar">
         <div class="navbar-left">
             <div class="navbar-right">
-    
                 <a href="{% url 'home' %}">Web Serveur</a>
             </div>
-    
         </div>
         <div class="navbar-right">
             {% if user.is_authenticated %}
@@ -30,6 +29,7 @@
             {% endif %}
         </div>
     </nav>
+  
 
     <main class="container team-container">
         <div class="header-section">

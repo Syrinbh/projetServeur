@@ -8,6 +8,9 @@
     {% load static %}
     <title>Join Team</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
      <!-- Navbar simple -->
@@ -30,8 +33,6 @@
             {% endif %}
         </div>
     </nav>
-
-<h1>Rjoindre une equipe !</h1>
     
     
     <main class="container">
@@ -55,12 +56,15 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn confirm-btn">
-                    Confirmer l'adhésion
+                  <i class="fas fa-check-circle"></i>
+                  Confirmer 
                 </button>
-                <a class="link" href="{% url 'listTeam' %}" class="btn cancel-btn">
-                    Annuler
+                
+                <a href="{% url 'listTeam' %}" class="btn cancel-btn">
+                  <i class="fas fa-times-circle"></i>
+                  Annuler
                 </a>
-            </div>
+              </div>
         </form>
     </main>
 </body>
