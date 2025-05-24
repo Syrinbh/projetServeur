@@ -651,3 +651,56 @@ button.modify {
   background-color: #357abd;
   border-color: #2a5d8f;
 }
+
+/* page profile membre */ 
+.member-profile {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 20px;
+  padding: 0;
+}
+
+.member-profile h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #2980b9;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.member-profile p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+.member-profile h3 {
+  margin-top: 30px;
+  color: #34495e;
+}
+
+.member-profile ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.member-profile ul li {
+  margin: 6px 0;
+}
+
+.member-profile ul li a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.member-profile ul li a:hover {
+  color: #1abc9c;
+  text-decoration: underline;
+}
+
+.member-profile ul li:empty {
+  font-style: italic;
+  color: #888;
+}

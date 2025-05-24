@@ -162,6 +162,8 @@ ou en utilisant git:
 | `/quitTeam/<int:team_id>` | POST     | Quitter une équipe        | `team_id ` |
 | `/deleteTeam/`            | POST     | Supprimer une équipe      |      -     |
 | `/listTeam/`              | GET      | Lister les équipes        |      -     |
+| `/teamProfile/`           | GET      | le profil d'une équipe    | `team_id`  |
+| `/memberProfile/`         | GET      | le profil d'un membre     | `member_id`|
 
 
 ## 💻 Technologies utilisées

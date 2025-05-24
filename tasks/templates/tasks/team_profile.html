@@ -54,7 +54,6 @@
     {% endfor %}
   </ul>
 
-<footer>
 
   {% if user.is_superuser %}
     <a class ="btn-admin" href="{% url 'deleteTeam' team.id %}">Supprimer Equipe</a>
@@ -63,7 +62,6 @@
   
   <a class="btn" href="{% url 'listTeam' %}">← Retour à la liste des équipes</a>
 
-</footer>
 
 </body>
 
