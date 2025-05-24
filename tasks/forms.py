@@ -6,6 +6,10 @@ from .models import Task
 from django import forms 
 from .models import Team
 
+"""
+    Represente tous mes formulaires que peut avoir le site avec lesquels
+    les utilisateurs vont pouvoir interragir
+"""
 class RegisterForm (UserCreationForm ):
     class Meta : 
         model = User
@@ -17,11 +21,9 @@ class Taskform(forms.ModelForm):
         model = Task
         fields = ['title', 'statut', 'description', 'Parent','assignedUsers','assignedTeams']
 
-#team form 
 class TeamForm(forms.ModelForm):
     class Meta:
         model = Team
         fields = ['name', 'members']
 
-# class Task(forms.ModelForm):
-#     class Meta:
+

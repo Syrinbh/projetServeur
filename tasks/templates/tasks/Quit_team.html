@@ -39,6 +39,7 @@
             <form method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger">Quitter l'équipe</button>
+                <a class="link" href="{% url 'listTeam' %}" class="btn btn-secondary">Annuler</a>
                 <a  href="{% url 'home' %}" class="btn btn-secondary">Annuler</a>
             </form>
         {% else %}

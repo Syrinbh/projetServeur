@@ -3,7 +3,11 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
-
+"""_
+Contient tous les models d'objets utilisés par le serveur
+Ce sont des objets indépendants qui étendent des models de django afin
+de pouvoir être appele par le programme principal du serveur
+"""
 class Task(models.Model): 
     statutChoice = [('privée','Privée'),('publique','Publique')]
     title = models.CharField(max_length=200,default='none')

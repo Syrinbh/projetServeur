@@ -162,11 +162,9 @@ a.link{
   font-size: 16px;
   font-weight: bold;
   color:white;
-  background-color: #134698;
+  background-color: #218838;
 }
-a.link:hover{
-  background-color: #003366;
-}
+
 a:hover {
     text-decoration: underline;
 }

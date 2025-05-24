@@ -29,19 +29,23 @@
       </div>
   </nav>
 
-{% block content %}
   <h2>Profil de l'équipe : {{ team.name }}</h2>
 
   <h3>Membres</h3>
   <ul>
+    <!-- Pour chaque membre de l'équipe on affiche son nom et son email ainsi qu'un
+     bouton pour voir son profile -->
     {% for member in members %}
       <li>{{ member.username }} ({{ member.email }})</li>
+      <a class="btn-task create" href="{% url 'memberProfile' member.id %}">Voir Profile</a>
+
+    <!-- Si l'équipe est vide -->
     {% empty %}
       <li>Aucun membre</li>
     {% endfor %}
   </ul>
-
   <h3>Tâches assignées</h3>
+  <!-- Pour chaque tache de l'équipe on affiche le nom de la tâche et son statut-->
   <ul>
     {% for task in tasks %}
       <li>{{ task.title }} - {{ task.statut }}</li>
@@ -49,9 +53,9 @@
       <li>Aucune tâche assignée</li>
     {% endfor %}
   </ul>
+  <!-- Bouton retour à la liste d'équipe-->
 
   <a class="btn" href="{% url 'listTeam' %}">← Retour à la liste des équipes</a>
-{% endblock %}
 
 </body>
 </html>
