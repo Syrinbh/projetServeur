@@ -13,7 +13,6 @@ class Task(models.Model):
     title = models.CharField(max_length=200,default='none')
     statut = models.CharField(max_length=200,choices=statutChoice,default='privée')
     description = models.TextField()
-    #description = models.CharField(max_length=200)
     private = models.BooleanField(default=False)
     Parent = models.ForeignKey('self',null = True,blank=True,on_delete=models.SET_NULL,related_name="subtask")
     createdby = models.ForeignKey('User',null=True,blank=True,on_delete=models.SET_NULL,related_name='createdTasks')
