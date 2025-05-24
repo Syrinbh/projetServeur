@@ -34,27 +34,13 @@
     <h1>Application : Gestion des tâches </h1>
     <p>Connectez-vous ou inscrivez-vous pour commencer.</p>
 </section>
+
+<div class="btn-home">
 <a href="{% url 'create' %}" class="btn-task create">Créer une Tâche</a>
 <a href="{% url 'createTeam' %}" class="btn-task create">Créer une Équipe</a>
 <a href="{% url 'listTeam' %}" class="btn-task create">Voir les équipes</a>
 <a href="{% url 'list' %}" class="btn-task create">Voir les taches</a>
-
-<!-- j'ignore les tasks sans id -->
-<!--  
-    {% for task in tasks %}
-    <div class="task-item">
-        <p>{{ task.title }}</p>
-        
-        {% if task.id %}
-        <a href="{% url 'update' task.id %}" class="btn-task update">Modifier</a>
-        <a href="{% url 'delete' task.id %}" class="btn-task delete">Supprimer</a>
-        {% endif %}
-    </div>
-    {% empty %}
-    <p>Aucune tâche trouvée.</p>
-    {% endfor %}
--->
-
+</div>
 
 
 </body>

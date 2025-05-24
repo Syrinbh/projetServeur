@@ -10,15 +10,25 @@
 </head>
 <body>
     
- <!-- Navbar simple -->
-   
- <nav class="navbar">
-    <div class="navbar-left">
-        <div class="navbar-right">
-            <a href="{% url 'home' %}">Web Serveur</a>
+    <!-- Navbar simple -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+
+                <a href="{% url 'home' %}">Web Serveur</a>
+            </div>
+
         </div>
-    </div>
-</nav>
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <p>Connecté : {{ user.username }}</p>
+                <a href="{%url 'logout' %}">Se déconnecter</a>
+            {% else %}
+                <a href="register/">Register</a>
+                <a href="login/">Login</a>
+            {% endif %}
+        </div>
+    </nav>
 <!-- partie pour login -->
 <section class="register-part1">
     <h1><strong> Login Page </h1></strong>
@@ -37,5 +47,6 @@
     </form>
 
 </section>
+
 </body>
 </html>

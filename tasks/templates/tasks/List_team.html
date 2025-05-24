@@ -6,59 +6,101 @@
     {% load static %}
     <title>Liste des équipes</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
+
+     <!-- Navbar simple -->
+     <nav class="navbar">
         <div class="navbar-left">
             <div class="navbar-right">
                 <a href="{% url 'home' %}">Web Serveur</a>
             </div>
         </div>
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <p>Connecté : {{ user.username }}</p>
+                <a href="{%url 'logout' %}">Se déconnecter</a>
+            {% else %}
+                <a href="register/">Register</a>
+                <a href="login/">Login</a>
+            {% endif %}
+        </div>
     </nav>
+  
+    <div class="team">
 
-    <main class="container">
-        <h1>Liste des équipes</h1>
-
-        {% if teams %}
-            <ul class="team-list">
-                {% for team in teams %}
-                    <li>
-                        <strong>{{ team.name }}</strong> <br>
-                        Membres : {{ team.members.count }}<br>
-                        {% if team.members.all %}
-                            <ul>
-                                {% for member in team.members.all %}
-                                    <li>{{member.username}}</li>
-                                {% endfor %}
-                            </ul>
-                        {% else %}
-                            <em>Aucun membre</em>
-                        {% endif %}
-                        {% if user in team.members.all %}
-                        <form method="post" action="{% url 'quitTeam' team.id %}" style="display:inline;">
-                            {% csrf_token %}
-                            <a class= "link" href="{% url 'quitTeam' team.id %}">Quitter </a>
-                            <a class="link" href="{% url 'teamProfile' team.id %}">Voir le profil</a>
-                        </form>
-                        {% else %}
-                            <a class="link" href="{% url 'joinTeam' team.id %}" class="btn btn-primary">Rejoindre</a>
-                            <a class='link' href="{% url 'teamProfile' team.id %}">Voir le profil</a>
-
-                        {% endif %}
-
-                        {% if user.is_superuser %}
-                        <form method="post" action="{% url 'deleteTeam' team.id %}" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
-                        </form>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-            </ul>
+        <main class="container team-container">
+            <div class="header-section">
+                <h1 class="page-title">
+                    <i class="fas fa-users"></i> Liste des équipes</h1>
+                    <a href="{% url 'createTeam' %}" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i> Créer une équipe
+                    </a>
+                </div>
+                
+                {% if teams %}
+                <div class="team-grid">
+            {% for team in teams %}
+            <div class="team-card">
+                <div class="team-header">
+                    <h2 class="team-name">{{ team.name }}</h2>
+                    <span class="team-members-count">
+                        <i class="fas fa-user-friends"></i> {{ team.members.count }}
+                    </span>
+                </div>
+                
+                <div class="team-members">
+                    {% if team.members.all %}
+                    {% for member in team.members.all %}
+                    <div class="member-badge">
+                        <i class="fas fa-user"></i> {{ member.username }}
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <div class="empty-state">
+                        <i class="fas fa-info-circle"></i> Aucun membre
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="team-actions">
+                    {% if user in team.members.all %}
+                    <a href="{% url 'quitTeam' team.id %}" class="btn btn-warning">
+                        <i class="fas fa-sign-out-alt"></i> Quitter
+                    </a>
+                    {% else %}
+                    <a href="{% url 'joinTeam' team.id %}" class="btn btn-success">
+                        <i class="fas fa-user-plus"></i> Rejoindre
+                    </a>
+                    {% endif %}
+                    
+                    <a href="{% url 'teamProfile' team.id %}" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> Profil Equipe
+                    </a>
+                    
+                    {% if user.is_superuser %}
+                    <form method="post" action="{% url 'deleteTeam' team.id %}" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i> Supprimer
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
         {% else %}
-            <p>Aucune équipe disponible.</p>
+        <div class="empty-state">
+            <i class="fas fa-users-slash"></i>
+            <h3>Aucune équipe disponible</h3>
+            <p>Créez la première équipe pour commencer !</p>
+        </div>
         {% endif %}
+    </div>
     </main>
+
 </body>
 </html>

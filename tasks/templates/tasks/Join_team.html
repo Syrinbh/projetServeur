@@ -8,23 +8,35 @@
     {% load static %}
     <title>Join Team</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
      <!-- Navbar simple -->
    
- <nav class="navbar">
-    <div class="navbar-left">
-        <div class="navbar-right">
-            <a href="{% url 'home' %}">Web Serveur</a>
+     <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+    
+                <a href="{% url 'home' %}">Web Serveur</a>
+            </div>
+    
         </div>
-    </div>
-</nav>
-
-<h1>Rjoindre une equipe !</h1>
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <p>Connecté : {{ user.username }}</p>
+                <a href="{%url 'logout' %}">Se déconnecter</a>
+            {% else %}
+                <a href="register/">Register</a>
+                <a href="login/">Login</a>
+            {% endif %}
+        </div>
+    </nav>
     
-    
-    <main class="container">
-        <h1 class="page-title">Rejoindre une équipe</h1>
+    <div class="team-container">
+        <div class="team-card">
+          <h2 class="team-name">Rejoindre l'équipe</h2>
         
         {% if team %}
         <div class="team-card">
@@ -44,13 +56,17 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn confirm-btn">
-                    Confirmer l'adhésion
+                  <i class="fas fa-check-circle"></i> Confirmer
                 </button>
-                <a class="link" href="{% url 'listTeam' %}" class="btn cancel-btn">
-                    Annuler
+                <a href="{% url 'listTeam' %}" class="btn cancel-btn">
+                  <i class="fas fa-times-circle"></i> Annuler
                 </a>
+              </div>
             </div>
+          </div>
+          
         </form>
     </main>
+  
 </body>
 </html>

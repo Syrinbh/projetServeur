@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-    <!-- Navbar simple -->
-        <nav class="navbar">
-            <div class="navbar-left">
-                <div class="navbar-right">
-                    <a href="{% url 'home' %}">Web Serveur</a>
-                </div>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+    
+                <a href="{% url 'home' %}">Web Serveur</a>
             </div>
+    
+        </div>
+        <div class="navbar-right">
+            {% if user.is_authenticated %}
+                <p>Connecté : {{ user.username }}</p>
+                <a href="{%url 'logout' %}">Se déconnecter</a>
+            {% else %}
+                <a href="register/">Register</a>
+                <a href="login/">Login</a>
+            {% endif %}
+        </div>
     </nav>
 
 <!-- partie pour register -->
@@ -29,5 +39,6 @@
 
 
 </section>
+
 </body>
 </html>
