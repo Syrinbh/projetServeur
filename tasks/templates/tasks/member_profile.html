@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Liste des équipes</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <div class="navbar-right">
+                <a href="{% url 'home' %}">Web Serveur</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <!-- On affiche le nom du membre , son email etc... -->
+  <h2>Profil de {{ member.username }}</h2>
+  <p>Email : {{ member.email }}</p>
+  <p>Nom : {{ member.first_name }} {{ member.last_name }}</p>
+
+  <h3>Équipes :</h3>
+  <ul>
+    <!-- Pour chaque équipes auquelles il appartient on affiche 
+    le nom de l'équipe-->
+    {% for team in member.teams.all %}
+      <li><a href="{% url 'teamProfile' team.id %}">{{ team.name }}</a></li>
+    <!-- Si il n'a aucune équipe on peut afficher aucune équipe-->
+    {% empty %}
+      <li>Aucune équipe</li>
+    {% endfor %}
+  </ul>

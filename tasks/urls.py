@@ -4,6 +4,11 @@ from django.urls import path
 from . import views
 from tasks import views
 
+"""
+urlpatterns contient tout les liens utiliser dans les templates pour naviguer 
+sur le site et fait en sorte de rendre opaque l'adresse URI
+"""
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('register/', views.Register_view, name = 'register'),
@@ -20,6 +25,7 @@ urlpatterns = [
     path('quitTeam/<int:team_id>/', views.quit_team_view, name='quitTeam'),
     path('deleteTeam<int:team_id>/', views.delete_team_view, name='deleteTeam'),
     path('listTeam/',views.List_team_view, name='listTeam'),
-    path('team/<int:team_id>/',views.team_profile_view, name='teamProfile')
+    path('team/<int:team_id>/',views.team_profile_view, name='teamProfile'),
+    path('member/<int:member_id>/',views.member_profile_view, name='memberProfile')
 
 ]
