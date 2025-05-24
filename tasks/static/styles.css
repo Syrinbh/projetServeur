@@ -6,6 +6,10 @@ html, body {
   height: 100%;
   margin: 0;
 }
+footer{
+  margin:auto;
+  text-align: center;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -223,6 +227,23 @@ a:hover {
   min-width: 140px;
   transition: background-color 0.3s ease;
   cursor: pointer;
+}
+.btn-admin{
+  background-color:#c82333;
+  color:white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
 }
 
 .btn-task.create:hover {

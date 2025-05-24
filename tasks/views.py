@@ -312,7 +312,7 @@ def quit_team_view(request,team_id):
 @login_required
 def delete_team_view(request, team_id):
     """
-    Vue pour quitter une équipe
+    Vue pour supprimer une équipe
     /!\ Nécessite d'être connecté
 
 
@@ -323,6 +323,12 @@ def delete_team_view(request, team_id):
     Returns:
         function: redirige sur la page de liste des équipes si ok
     """
+    #il peut y avoir un probleme de sécurité donc on vérifie que l'auteur 
+    #de la requête est bien un superutilisateur
+    if not (request.user.is_superuser):
+        return HttpResponseForbidden("Vous n'avez pas accès, seul un superutilisateur peut supprimmer une équipe")
+    
+    
     team = get_object_or_404(Team,id = team_id)
     if request.method == 'POST':
         team.delete()
