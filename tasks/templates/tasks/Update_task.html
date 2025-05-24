@@ -4,12 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <title>Modifier la Tâche</title>
+    <title>Liste des équipes</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+          <div class="navbar-right">
+  
+              <a href="{% url 'home' %}">Web Serveur</a>
+          </div>
+  
+      </div>
+      <div class="navbar-right">
+          {% if user.is_authenticated %}
+              <p>Connecté : {{ user.username }}</p>
+              <a href="{%url 'logout' %}">Se déconnecter</a>
+          {% else %}
+                <a href="{% url 'register' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a>
+          {% endif %}
+      </div>
+  </nav>
 
-    <h1>Modifier la tâche : {{ task.title }}</h1>
+      <h1>Modifier la tâche : {{ task.title }}</h1>
 
     <form method="POST">
         {% csrf_token %}
@@ -22,5 +41,6 @@
 
    
 
-</body>
-</html>
+<body>
+
+

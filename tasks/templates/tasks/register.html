@@ -22,8 +22,8 @@
                 <p>Connecté : {{ user.username }}</p>
                 <a href="{%url 'logout' %}">Se déconnecter</a>
             {% else %}
-                <a href="register/">Register</a>
-                <a href="login/">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a>
             {% endif %}
         </div>
     </nav>
