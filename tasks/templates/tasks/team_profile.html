@@ -53,9 +53,18 @@
       <li>Aucune tâche assignée</li>
     {% endfor %}
   </ul>
-  <!-- Bouton retour à la liste d'équipe-->
 
+<footer>
+
+  {% if user.is_superuser %}
+    <a class ="btn-admin" href="{% url 'deleteTeam' team.id %}">Supprimer Equipe</a>
+  {% endif %}
+  <!-- Bouton retour à la liste d'équipe-->
+  
   <a class="btn" href="{% url 'listTeam' %}">← Retour à la liste des équipes</a>
 
+</footer>
+
 </body>
+
 </html>

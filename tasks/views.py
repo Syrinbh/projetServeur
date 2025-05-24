@@ -308,7 +308,7 @@ def quit_team_view(request,team_id):
 @login_required
 def delete_team_view(request, team_id):
     """
-    Vue pour quitter une équipe
+    Vue pour supprimer une équipe
     /!\ Nécessite d'être connecté
 
 
