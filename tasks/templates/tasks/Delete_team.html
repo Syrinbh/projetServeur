@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <main class="container">
+    <div class="QuitContainer">
         <h1>Supprimer l'équipe</h1>
         <p>Êtes-vous sûr de vouloir supprimer l'équipe <strong>{{ team.name }}</strong> ? Cette action est irréversible.</p>
         
@@ -37,7 +37,7 @@
             <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
             <a href="{% url 'listTeam' %}" class="btn btn-secondary">Annuler</a>
         </form>
-    </main>
+    </div>
   
 </body>
 </html>
