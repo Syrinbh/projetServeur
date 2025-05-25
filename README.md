@@ -19,6 +19,15 @@ ou en utilisant git:
 `git clone https://github.com/Syrinbh/projetServeur.git`
 
 
+### 🛡️ Ajout d’un superutilisateur Django
+
+Vous pouvez ajouter un superutilisateur sur Django avec la commande suivante:
+
+`python3 manage.py createsuperuser`
+
+Assurez-vous que votre terminal se situe bien au même niveau de l'architecture que le fichier `manage.py`
+
+
 ## 📝 Resumé du Projet
 
 ### 🎯 Objectifs du projet 
